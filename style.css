@@ -14,6 +14,8 @@
 
     --ff-title: 'Staatliches', cursive;
     --ff-texts: 'Palanquin', sans-serif;
+    --ff-roboto: 'Roboto', sans-serif;
+    --ff-open-sans: 'Open Sans', sans-serif;
 
     font-size: 62.5%;
     --fs-body: 1.6rem;
@@ -28,6 +30,70 @@ body {
 .page {
     max-width: clamp(38.4rem, 28rem + 60vw, 70.0rem);
     margin: 0 auto;
+}
+
+@media (min-width: 750px) {
+    .header{
+        background-color: var(--bc-heading);
+        display: flex;
+        flex-direction: column;
+        width: 38.0rem;
+        height: 100vh;
+    }
+
+    .page .header p {
+        font-family: var(--ff-roboto);
+        font-size: 2.4rem;
+        line-height: 2.0rem;
+        color: white;
+        margin: 3.2rem;
+        text-align: center;
+    }
+
+    .page {
+        display: flex;
+        justify-content: space-between;
+        max-width: 100%;
+    }
+
+    .page main {
+        align-items: top;
+        grid-template-areas: "A B C"
+        "D B F"
+        "D E F";
+    }
+
+    main > div:nth-child(1) {
+        grid-area: A;
+    }
+
+    main > div:nth-child(2) {
+        grid-area: B;
+    }
+
+    main > div:nth-child(3) {
+        grid-area: C;
+    }
+    main > div:nth-child(4) {
+        grid-area: D;
+    }
+    main > div:nth-child(5) {
+        grid-area: E;
+    }
+    main > div:nth-child(6) {
+        grid-area: F;
+    }
+
+   .main footer {
+        display: block;
+    }
+
+    footer p {
+        font-family: var(--ff-open-sans);
+        font-size: 1.4rem;
+        line-height: 2.8rem;
+    }
+
 }
 
 header {
@@ -56,12 +122,29 @@ header h1 {
     text-align: center;
     padding: 0.8rem 0;
 }
-
-main {
-    padding: 0 3.2rem;
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-main p {
+main {
+    margin: auto;
+    padding: 0 3.2rem;
+    display: grid;
+    gap: 3.2rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header > div:nth-child(2) {
+    align-items: center;
+}
+
+.header p {
     margin-top: 1.4rem;
     
     font-family: var(--ff-texts);
@@ -72,12 +155,13 @@ main p {
     color: var(--text-color);
     text-align: center;
     margin-bottom: 6.3rem;
+
+    width: 30.5rem;
 }
 
 .card {
     font-family: var(--ff-title);
     position: relative;
-    margin-bottom: 3.6rem;
 }
 
 .card img {
@@ -108,6 +192,10 @@ main p {
     padding: 1px 2.4rem;
 
     animation: topdown 400ms 200ms backwards;
+}
+
+footer {
+    display: none;
 }
 
 
